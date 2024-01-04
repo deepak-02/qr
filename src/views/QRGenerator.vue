@@ -55,7 +55,7 @@ export default {
         },
 
       save(){
-        axios.post('https://ptf-attendance.onrender.com/api/qr/response')
+        axios.get('https://ptf-attendance.onrender.com/api/qr/response')
         .then((response)=>{
 
        // let i = response.data;
