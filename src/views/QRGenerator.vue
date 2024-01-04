@@ -42,9 +42,10 @@ export default {
      },
      methods:{
       getQRcode(){
-        axios.get('https://attendance-production-ce48.up.railway.app/api/rest/qr-generator')
+        axios.get('https://ptf-attendance.onrender.com/api/qr/get')
         .then((response)=>{
-          this.QRValue=response.data;
+          // this.QRValue=response.data;
+             this.QRValue = response.data.qrString;
           console.log(response.status);
           console.log(response.data);
           console.log("success...")
@@ -54,11 +55,11 @@ export default {
         },
 
       save(){
-        axios.post('https://attendance-production-ce48.up.railway.app/api/rest/response')
+        axios.post('https://ptf-attendance.onrender.com/api/qr/response')
         .then((response)=>{
 
        // let i = response.data;
-        while (response.data == 100) {
+        while (response.data.response == 100) {
             console.log(response.data);
             console.log("aaaa");
             this.$router.go();
